@@ -4,8 +4,8 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "nodemon script.js",
-    "test": "node script.js"
+    "start": "nodemon server.js",
+    "test": "node server.js"
   },
   "author": "MR RAIHAN MAHAMUD",
   "license": "ISC",
