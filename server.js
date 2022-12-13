@@ -16,7 +16,7 @@ app.use([customErrorMessage, customErrorHandle]);
 
 const port = process.env.PORT || 3000;
 const local = 'mongodb://localhost:27017';
-const cloud = 'mongodb+srv://SELISE:s3l1s3@royal-tech-db-01.dhisd.mongodb.net';
+const cloud = 'mongodb+srv://<username>:<password>@royal-tech-db-01.dhisd.mongodb.net';
 // mongoose
 //     .connect(`${local}/bup`, { useNewUrlParser: true })
 //     .then(() => {
