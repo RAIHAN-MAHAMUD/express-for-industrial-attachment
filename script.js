@@ -86,12 +86,11 @@ function globalValidator(req, res, next) {
     if (token.role == 'admin') {
         next();
     } else {
-        if (req.method == 'PUT') {
+        if (req.method == 'DELETE') {
             res.send("You are not valid for this operation");
         } else {
             next();
         }
-
     }
 }
 

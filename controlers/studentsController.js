@@ -1,3 +1,5 @@
+const StudentTable = require('../models/Student')
+
 let students = [
     {
         id: 1,
@@ -30,8 +32,9 @@ let students = [
 
 
 // GET 
-exports.findAll = (req, res) => {
-    res.send(students);
+exports.findAll = async (req, res) => {
+    // res.send(students);
+    res.send(await StudentTable.find());
 }
 
 exports.findById = (req, res) => {
@@ -48,8 +51,15 @@ exports.findByName = (req, res) => {
 
 
 // POST
-exports.createStudent = (req, res) => {
-    const student = req.body;
-    students.push(student);
-    res.send(students);
+exports.createStudent = async (req, res) => {
+    // const student = req.body;
+    // students.push(student);
+    // const student = new StudentTable({
+    //     id: req.body.id,
+    //     name: req.body.name,
+    //     age: req.body.age
+    // });
+    const student = new StudentTable(req.body);
+    await student.save();
+    res.send(student);
 }
