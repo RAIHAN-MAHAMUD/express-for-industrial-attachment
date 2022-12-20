@@ -2,10 +2,11 @@ const { customErrorMessage, customErrorHandle } = require('./global/errorHandlin
 const { roleManage } = require('./global/roleManagement');
 const mongoose = require('mongoose');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 app.use([express.json()]);
-
+app.use(cors());
 app.use('/api/v1', require('./routers/router'));
 
 app.get('/health', (req, res) => {
@@ -28,6 +29,6 @@ const cloud = 'mongodb+srv://<username>:<password>@royal-tech-db-01.dhisd.mongod
 
 
 app.listen(port, async () => {
-    await mongoose.connect(`${cloud}/bup`, { useNewUrlParser: true })
+    await mongoose.connect(`${local}/bup`, { useNewUrlParser: true })
     console.log(`Express is running on port : ${port}`);
 });
